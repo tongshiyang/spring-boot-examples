@@ -1,11 +1,7 @@
 package com.neo.model;
 
 import java.io.Serializable;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class User implements Serializable {
@@ -14,13 +10,13 @@ public class User implements Serializable {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false, unique = true, length = 20)
 	private String userName;
 	@Column(nullable = false)
 	private String passWord;
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false, unique = true, length = 30)
 	private String email;
-	@Column(nullable = true, unique = true)
+	@Column(nullable = true, unique = true, length = 30)
 	private String nickName;
 	@Column(nullable = false)
 	private String regTime;

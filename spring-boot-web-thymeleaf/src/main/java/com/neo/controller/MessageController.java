@@ -1,7 +1,7 @@
 
 package com.neo.controller;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 import com.neo.model.Message;
 import com.neo.repository.MessageRepository;

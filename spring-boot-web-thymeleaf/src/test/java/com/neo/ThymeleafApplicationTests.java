@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -26,8 +26,7 @@ public class ThymeleafApplicationTests {
 	@Autowired
 	private TestRestTemplate restTemplate;
 
-	@LocalServerPort
-	private int port;
+	private int port=8080;
 
 	@Test
 	public void testHome() {
@@ -50,8 +49,16 @@ public class ThymeleafApplicationTests {
 	public void testCss() {
 		ResponseEntity<String> entity = this.restTemplate.getForEntity(
 				"http://localhost:" + this.port + "/css/bootstrap.min.css", String.class);
+
+		ResponseEntity<String> response = restTemplate.exchange(
+				createURLWithPort("/students/Student1/courses"),
+				HttpMethod.POST, entity, String.class);
 		assertThat(entity.getStatusCode()).isEqualTo(HttpStatus.OK);
 		assertThat(entity.getBody()).contains("body");
+	}
+
+	private String createURLWithPort(String uri) {
+		return "http://localhost:" + port + uri;
 	}
 
 }

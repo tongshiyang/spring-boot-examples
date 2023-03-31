@@ -1,9 +1,8 @@
 package com.neo.model;
 
+import jakarta.validation.constraints.NotEmpty;
+
 import java.util.Calendar;
-
-import javax.validation.constraints.NotEmpty;
-
 
 public class Message {
 

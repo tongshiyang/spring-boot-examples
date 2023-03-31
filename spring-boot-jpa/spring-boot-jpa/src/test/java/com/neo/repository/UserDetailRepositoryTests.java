@@ -1,18 +1,14 @@
 package com.neo.repository;
 
 import com.neo.model.Address;
-import com.neo.model.User;
 import com.neo.model.UserDetail;
 import com.neo.model.UserInfo;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;

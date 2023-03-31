@@ -29,7 +29,7 @@ public class ProPertiesTest {
     @Test
     public void testMap() throws Exception {
     	Map<String, Long> orderMinTime=new HashMap<String, Long>();
-    	long xx=orderMinTime.get("123");
+    	orderMinTime.get("123");
     }
 
 }

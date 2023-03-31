@@ -1,12 +1,12 @@
 package com.neo.web;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.neo.model.User;
 
-import javax.servlet.http.HttpSession;
 import java.util.UUID;
 
 @RestController

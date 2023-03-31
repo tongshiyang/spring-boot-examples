@@ -9,7 +9,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import javax.annotation.Resource;
+import jakarta.annotation.Resource;
 import java.text.DateFormat;
 import java.util.Date;
 
@@ -62,8 +62,7 @@ public class UserRepositoryTests {
 	@Test
 	public void testPageQuery()  {
 		int page=1,size=2;
-		Sort sort = new Sort(Sort.Direction.DESC, "id");
-		Pageable pageable = PageRequest.of(page, size, sort);
+		Pageable pageable = PageRequest.of(page, size, Sort.by("id").descending());
 		userRepository.findALL(pageable);
 		userRepository.findByNickName("aa", pageable);
 	}

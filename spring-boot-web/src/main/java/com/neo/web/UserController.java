@@ -14,9 +14,21 @@ public class UserController {
 	
 	@Autowired
 	private UserRepository userRepository;
+
+    @RequestMapping("/add")
+    public User saveUser(String key) {
+        User user=new User();
+        user.setUserName("aa"+key);
+        user.setEmail("ityouknow@126.com"+key);
+        user.setNickName("微笑"+key);
+        user.setPassWord("123456"+key);
+        user.setRegTime("2022-12-20"+key);
+        userRepository.save(user);
+        return user;
+    }
 	
-    @RequestMapping("/getUser")
-    public User getUser() {
+    @RequestMapping("/getUserByName")
+    public User getUserByName() {
     	User user=userRepository.findByUserName("aa");
     	System.out.println("若下面没出现“无缓存的时候调用”字样且能打印出数据表示测试成功");  
         return user;

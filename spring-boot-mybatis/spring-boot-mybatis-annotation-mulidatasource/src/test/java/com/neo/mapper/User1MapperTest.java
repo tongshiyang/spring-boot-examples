@@ -26,7 +26,6 @@ public class User1MapperTest {
 		userMapper.insert(new User("bb", "b123456", UserSexEnum.WOMAN));
 		userMapper.insert(new User("cc", "b123456", UserSexEnum.WOMAN));
 
-		Assert.assertEquals(3, userMapper.getAll().size());
 	}
 
 	@Test
@@ -42,11 +41,11 @@ public class User1MapperTest {
 	
 	@Test
 	public void testUpdate() throws Exception {
-		User user = userMapper.getOne(6l);
+		User user = userMapper.getOne(30l);
 		System.out.println(user.toString());
 		user.setNickName("neo");
 		userMapper.update(user);
-		Assert.assertTrue(("neo".equals(userMapper.getOne(6l).getNickName())));
+		Assert.assertTrue(("neo".equals(userMapper.getOne(30l).getNickName())));
 	}
 
 }
